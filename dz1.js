@@ -29,12 +29,19 @@ let personalMovieDB ={
     privat: false
 };
 
-
+(personalMovieDB.count <= 10) ? alert("Просмотрено слишком мало фильмов") :
+(personalMovieDB.count > 10 && personalMovieDB.count < 30) ? alert("Вы классический зритель") :
+(personalMovieDB.count >= 30) ? alert("Вы киноман") : alert("Произошла ошибка");
 
 
 for (let i = 0; i<2; i++) {
 
-        let nameOfFilms = prompt('Один из последних просмотренных фильмов?', ' ');
+        let nameOfFilms = prompt('Один из последних просмотренных фильмов?', '');
+        if (nameOfFilms==null || nameOfFilms.length<1 || nameOfFilms.length>50 ) {
+            i--;
+            alert("Повторите еще раз");
+            continue;
+        }
        let movieRating;
         let bool;
        do{
@@ -60,7 +67,7 @@ for (let i = 0; i<2; i++) {
 console.log(personalMovieDB);
 
 
-document.write(numberOfFilms);
+
 
 
 
